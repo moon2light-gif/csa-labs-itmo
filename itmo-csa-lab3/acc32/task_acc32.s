@@ -10,7 +10,7 @@ count:           .word  0x00               ; Переменная, котора�
 i:               .word  32                 ; Количество бит, занимаемое одним числом в памяти
 
     .text
-
+    .org 0x88
 _start:
     load         input_addr                  ; Загружаем input_addr в acc
     load_acc                                 ; Загружаем то, что находится внутри input_addr в acc

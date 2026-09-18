@@ -15,7 +15,6 @@ reports:
     slice: last
     view: |
       {memory:table}
-      Memory: {memory:0x00:0x20}
 
   - name: "Stacks"
     slice: last
@@ -32,4 +31,4 @@ reports:
       numio[0x84]: {io:0x84:dec}
     assert: |
       numio[0x80]: [] >>> []
-      numio[0x84]: [] >>> [0, 66]
+      numio[0x84]: [] >>> [0,66]

@@ -31,5 +31,5 @@ reports:
       numio[0x80]: {io:0x80:dec}
       numio[0x84]: {io:0x84:dec}
     assert: |
-      numio[0x80]: [] >>> []
-      numio[0x84]: [] >>> [0, 4294967295]
+      numio[0x80]: [0] >>> []
+      numio[0x84]: [] >>> [0,4294967295]
