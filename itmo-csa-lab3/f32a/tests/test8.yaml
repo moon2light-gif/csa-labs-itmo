@@ -1,0 +1,35 @@
+limit: 1000
+memory_size: 8192
+
+memory_mapped_io:
+  0x80: [4, 2147483647, 1, 2147483647, 2, 0]
+  0x84: []
+
+reports:
+  - name: "Step-by-step memory-trace"
+    slice: all
+    view: |
+      {pc:hex}: {instruction:next} {pc:label}
+
+  - name: memory-map
+    slice: last
+    view: |
+      {memory:table}
+      Memory: {memory:0x00:0x20}
+
+  - name: "Stacks"
+    slice: last
+    # Глубина dataStack показывает максмальное количество одновременно активных операндов, находившихся в стеке во время выполнения
+    # Глубина returnStack отражает максимальный уровень вложенности вызовов функций
+    view: |
+      f32a:data-stack-max: {f32a:data-stack-max}
+      f32a:return-stack-max: {f32a:return-stack-max}
+
+  - name: "Result verification"
+    slice: last
+    view: |
+      numio[0x80]: {io:0x80:dec}
+      numio[0x84]: {io:0x84:dec}
+    assert: |
+      numio[0x80]: [] >>> []
+      numio[0x84]: [] >>> [1, 1]
