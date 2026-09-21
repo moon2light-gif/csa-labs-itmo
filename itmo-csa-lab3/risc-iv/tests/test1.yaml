@@ -2,7 +2,7 @@ limit: 1000
 memory_size: 8192
 
 memory_mapped_io:
-  0x80: [5]
+  0x80: ["h", "e", "l", "l", "o", '\n']
   0x84: []
 
 reports:
@@ -16,6 +16,8 @@ reports:
     view: |
       numio[0x80]: {io:0x80:dec}
       numio[0x84]: {io:0x84:dec}
+      Sp: {Sp:hex}
+
     assert: |
       numio[0x80]: [] >>> []
-      numio[0x84]: [] >>> [2]
+      numio[0x84]: [] >>> [05,6f,6c,6c,65,68,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f]
