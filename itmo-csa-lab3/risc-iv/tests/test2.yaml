@@ -2,7 +2,7 @@ limit: 2000
 memory_size: 0x1000
 
 memory_mapped_io:
-  0x80: [119, 111, 114, 108, 100, 33, 10]
+  0x80: [104, 101, 108, 108, 111, 10]
   0x84: []
 
 reports:
@@ -18,7 +18,7 @@ reports:
       {memory:0:31}
     assert: |
       numio[0x80]: [] >>> []
-      numio[0x84]: [] >>> [33,100,108,114,111,119]
+      numio[0x84]: [] >>> [111,108,108,101,104]
       symio[0x80]: "" >>> ""
-      symio[0x84]: "" >>> "!dlrow"
-      mem[0..31]: 	06 21 64 6c 72 6f 77 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f
+      symio[0x84]: "" >>> "olleh"
+      mem[0..31]: 	05 6f 6c 6c 65 68 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f 5f
